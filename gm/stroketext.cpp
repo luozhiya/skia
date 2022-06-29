@@ -110,7 +110,7 @@ DEF_SIMPLE_GM_CAN_FAIL(stroketext_native, canvas, msg, 650, 420) {
             { SkSetFourByteTag('w','g','h','t'), 721.0f },
         };
         SkFontArguments params;
-        params.setVariationDesignPosition({position, std::size(position)});
+        params.setVariationDesignPosition({position, static_cast<int>(std::size(position))});
         return SkFontMgr::RefDefault()->makeFromStream(std::move(variableStream), params);
     }();
 

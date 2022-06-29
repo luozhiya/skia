@@ -271,7 +271,7 @@ DEF_SIMPLE_GM(blob_rsxform_distortable, canvas, 500, 100) {
             { SkSetFourByteTag('w','g','h','t'), 1.618033988749895f }
         };
         SkFontArguments params;
-        params.setVariationDesignPosition({position, std::size(position)});
+        params.setVariationDesignPosition({position, static_cast<int>(std::size(position))});
         typeface = fm->makeFromStream(std::move(distortable), params);
     }
 

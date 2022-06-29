@@ -12,11 +12,15 @@ import stat
 import sys
 import tempfile
 import zipfile
+import urllib2
 
 if sys.version_info[0] < 3:
   from urllib2 import urlopen
 else:
   from urllib.request import urlopen
+
+os.environ['http_proxy'] = 'sock5://localhost:10808'
+os.environ['https_proxy'] = 'sock5://localhost:10808'
 
 os.chdir(os.path.join(os.path.dirname(__file__), os.pardir))
 

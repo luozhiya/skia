@@ -944,13 +944,14 @@ static EdgeMap simplify(const EdgeMap& edges, SkPathFillType fillType) {
     for (auto [edge, count] : edges) {
         // We should only have one ordering of any given edge.
         SkASSERT(edges.find(edge.reverse()) == edges.end());
+        int mc = count;
         if (fillType == SkPathFillType::kEvenOdd) {
-            count = abs(count) & 1;
+            mc = abs(count) & 1;
         }
-        if (count > 0) {
-            simplifiedEdges[edge] = count;
-        } else if (count < 0) {
-            simplifiedEdges[edge.reverse()] = -count;
+        if (mc > 0) {
+            simplifiedEdges[edge] = mc;
+        } else if (mc < 0) {
+            simplifiedEdges[edge.reverse()] = -mc;
         }
     }
     return simplifiedEdges;

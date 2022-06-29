@@ -147,7 +147,7 @@ DEF_TEST(GrRenderTaskCluster, reporter) {
             REPORTER_ASSERT(reporter, actualResult);
             // SkTInternalLList::countEntries is debug-only and these tests run in release.
             int newCount = 0;
-            for ([[maybe_unused]] GrRenderTask* t : llist) {
+            for (GrRenderTask* t : llist) {
                 newCount++;
             }
             REPORTER_ASSERT(reporter, newCount == expectedOutput.count());

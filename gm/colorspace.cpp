@@ -112,10 +112,10 @@ static void draw_colorspace_gm(Strategy strategy, SkCanvas* canvas) {
     }
 }
 
-DEF_SIMPLE_GM(colorspace, canvas, W*std::size(gTFs), H*std::size(gGamuts)) {
+DEF_SIMPLE_GM(colorspace, canvas, static_cast<int32_t>(W*std::size(gTFs)), static_cast<int32_t>(H*std::size(gGamuts))) {
     draw_colorspace_gm(SkImage_makeColorSpace, canvas);
 }
 
-DEF_SIMPLE_GM(colorspace2, canvas, W*std::size(gTFs), H*std::size(gGamuts)) {
+DEF_SIMPLE_GM(colorspace2, canvas, static_cast<int32_t>(W*std::size(gTFs)), static_cast<int32_t>(H*std::size(gGamuts))) {
     draw_colorspace_gm(SkCanvas_makeSurface, canvas);
 }
